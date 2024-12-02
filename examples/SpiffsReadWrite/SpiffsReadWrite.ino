@@ -1,5 +1,5 @@
 //#define DEBUG
-#include "SpiffsReadWrite.h"
+#include <SpiffsReadWrite.h>
 
 void setup()
 {
@@ -20,7 +20,7 @@ void setup()
 
   //   Read to flash
   uint32_t read_data[10];
-  Spiffs.read(address_to_rw, read_data, sizeof(read_data)); // Read memory fom address_to_rw, the first 10 itens
+  Spiffs.read(address_to_rw, read_data, sizeof(read_data)); // From address_to_rw, read the first 10 itens
   Serial.println("First 10 itens read from SPIFFS partition:");
   for (uint32_t i = 0; i < sizeof(read_data) / 4U; i++)
     if ( read_data[i] == UINT32_MAX )
