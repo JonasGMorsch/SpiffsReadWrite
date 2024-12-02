@@ -1,5 +1,5 @@
 # SpiffsReadWrite
-This is a library for the ESP32 internal flash storage, which includes multiple partitions, including a very useful one: 
+This is a library for the ESP32 internal flash storage, that have multiple partitions, including a very useful one: 
 
 The SPIFFS partition
 
