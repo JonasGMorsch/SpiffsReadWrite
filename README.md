@@ -1,5 +1,9 @@
 # SpiffsReadWrite
-This is a library for the ESP32 internal flash storage, which includes multiple partitions, including a very useful one: the SPIFFS partition. This partition can be used to store user data. Traditionally, access to it is done via the SPIFFS/LittleFS filesystem, but this library enables EEPROM-like access to the storage, reducing overhead for certain applications.
+This is a library for the ESP32 internal flash storage, which includes multiple partitions, including a very useful one: 
+
+The SPIFFS partition
+
+This partition can be used to store user data. Traditionally, access to it is done via the SPIFFS/LittleFS filesystem, but this library enables EEPROM-like access to the storage, reducing overhead and read time for certain applications.
 
 It runs on ESP32 devices using the Arduino Core:
 
