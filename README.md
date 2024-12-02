@@ -1,11 +1,13 @@
+# SpiffsReadWrite
+This is a library for the ESP32 internal flash storage, that have multiple partitions, including a very useful one: 
 
-![GY21 Sensor](https://github.com/JonasGMorsch/GY-21/blob/master/documentation/GY-21.jpg)
+The SPIFFS partition
 
-This is a library for the GY-21 Board (HTU21, SHT21 and Si7021 Sensors).
+This partition can be used to store user data. Traditionally, access to it is done via the SPIFFS/LittleFS filesystem, but this library enables EEPROM-like access to the storage, reducing overhead and read time for certain applications.
 
-It runs on ESP8266/ATMega Devices using Arduino IDE.
+It runs on ESP32 devices using the Arduino Core:
 
-These boards use **I2C** to communicate.
+![Example](https://github.com/JonasGMorsch/SpiffsReadWrite/blob/main/example.png)
 
 ## Installing this Library
 
@@ -13,23 +15,19 @@ https://www.arduino.cc/en/Guide/Libraries
 
 ## How to Use
 
-Go to [Example](https://github.com/JonasGMorsch/GY-21/blob/master/examples/GY-21_test/GY-21_test.ino) or:
+Go to [Example](https://github.com/JonasGMorsch/SpiffsReadWrite/blob/main/examples/SpiffsReadWrite/SpiffsReadWrite.ino) or:
 
-1 - ```#include <GY21.h>```
+1 - ```#include <SpiffsReadWrite.h>```
 
-2 - make an object, for example: ```GY21 sensor;```
+2 - call ```Spiffs.write(address,data,sizeof(data));``` to write to flash
 
-3 - call ```Wire.begin();``` on setup()
+3 - call ```Spiffs.read(address,data,sizeof(data));``` to read flash
 
-4 - call ```sensor.GY21_Temperature();``` or ```sensor.GY21_Humidity();``` to get the values
+4 - call ```Spiffs.format();``` to format SPIFFS partition
 
-**Be Aware:**  It takes ~55ms to get the values
+**Be Aware:**  Flash memory is a wear-prone component; avoid writing to the same 4kB block unnecessarily.
 
+## Increassing SPIFFS partition
+If you don't plan to use OTA to upload code, you can modify the ESP32 partition scheme:
 
-## Sensors Documentation
-
-https://github.com/JonasGMorsch/GY-21/blob/master/documentation/HTU21.pdf
-
-https://github.com/JonasGMorsch/GY-21/blob/master/documentation/SHT21.pdf
-
-https://github.com/JonasGMorsch/GY-21/blob/master/documentation/Si7021.pdf
+![partion](https://github.com/JonasGMorsch/SpiffsReadWrite/blob/main/partitions.png)
