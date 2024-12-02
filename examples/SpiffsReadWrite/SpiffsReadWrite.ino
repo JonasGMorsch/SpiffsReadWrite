@@ -10,7 +10,7 @@ void setup()
   Serial.printf("SPIFFS partition start address: %u \n", Spiffs.partition_address);
   Serial.printf("SPIFFS partition size: %ukB or %u words \n", Spiffs.partition_size/1024, Spiffs.partition_size / 4U);
 
-  //Spiffs.format(); // Uncomment to erase the entire SPIFFS partition
+  //Spiffs.format(); // Uncomment to format the entire SPIFFS partition
 
   uint32_t address_to_rw = 4095; // It can be any value between 0 and partition_size in words
 
