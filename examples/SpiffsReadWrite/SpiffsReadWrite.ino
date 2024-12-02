@@ -10,9 +10,9 @@ void setup()
   Serial.printf("SPIFFS partition start address: %u \n", Spiffs.partition_address);
   Serial.printf("SPIFFS partition size: %ukB or %u words \n", Spiffs.partition_size/1024, Spiffs.partition_size / 4U);
 
-  //Spiffs.format(); // Erase entire SPIFFS partition
+  //Spiffs.format(); // Uncomment to erase the entire SPIFFS partition
 
-  uint32_t address_to_rw = 4095; // it can be anything between 0 and partition_size words
+  uint32_t address_to_rw = 4095; // It can be any value between 0 and partition_size in words
 
   //   Write to flash
   uint32_t write_data[] = {123123, 456456};
@@ -20,7 +20,7 @@ void setup()
 
   //   Read to flash
   uint32_t read_data[10];
-  Spiffs.read(address_to_rw, read_data, sizeof(read_data)); // From address_to_rw, read the first 10 itens
+  Spiffs.read(address_to_rw, read_data, sizeof(read_data)); // Read the first 10 items starting from address_to_rw
   Serial.println("First 10 itens read from SPIFFS partition:");
   for (uint32_t i = 0; i < sizeof(read_data) / 4U; i++)
     if ( read_data[i] == UINT32_MAX )
