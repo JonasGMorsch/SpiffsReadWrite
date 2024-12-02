@@ -25,7 +25,7 @@ Go to [Example](https://github.com/JonasGMorsch/SpiffsReadWrite/blob/main/exampl
 
 4 - call ```Spiffs.format();``` to format SPIFFS partition
 
-**Be Aware:**  Flash memory is a wear-prone component; avoid writing to the same 4kB block unnecessarily.
+**Be Aware:**  Flash memory is a wear-prone component, avoid write-erase-write to the same address block unnecessarily.
 
 ## Increassing SPIFFS partition
 If you don't plan to use OTA to upload code, you can modify the ESP32 partition scheme:
