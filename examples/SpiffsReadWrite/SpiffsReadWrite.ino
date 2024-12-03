@@ -12,7 +12,7 @@ void setup()
 
   //Spiffs.format(); // Uncomment to format the entire SPIFFS partition
 
-  uint32_t address_to_rw = 4095; // It can be any value between 0 and partition_size in words
+  uint32_t address_to_rw = 4095; // It can be any value between 0 and partition_size slots
 
   //   Write to flash
   uint32_t write_data[] = {123123, 456456};
